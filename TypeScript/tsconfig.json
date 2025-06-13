@@ -1,0 +1,25 @@
+// {
+//   "compilerOptions": {
+//     "module": "commonjs",
+//     "target": "es6"
+//   },
+//   "ts-node": {
+//     "compilerOptions": {
+//       "module": "commonjs"
+//     },
+//     "transpileOnly": true,
+//     "files": true
+//   },
+//   "include": [
+//     "**/*.ts"
+//   ]
+// }
+
+// ts-node 在处理 TypeScript 文件时的行为差异：
+// 当 tsconfig.json 文件存在时（即使内容被注释）：
+// ts-node 识别到这是一个 TypeScript 项目
+// 采用默认的 TypeScript 编译配置
+// 允许更灵活的模块系统处理
+// 当 tsconfig.json 文件不存在时：
+// ts-node 会回退到严格的默认行为
+// 默认使用 CommonJS 模块系统
