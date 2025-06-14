@@ -54,24 +54,78 @@
 // }
 
 // let x: number;
-// x = 1; 
-// x = undefined;  
-// x = null;   
+// x = 1;
+// x = undefined;
+// x = null;
 // console.log(x); // null
 
 // let x: null;
 // x = never; //Type 'never' is not assignable to type 'null'.
 
 // let someValue: any = "this is a string";
-// const strLength: number = someValue!.length; 
+// const strLength: number = someValue!.length;
 
 // function add(x: number, y?: number, z: number = 1): number {
 //     return x + y + z;
 // }
 // console.log(add(1, undefined, 2)) // NaN
 
-function buildName(firstName: string, ...restOfName: string[]) {
-    return firstName + " " + restOfName.join(" ");
-}
-console.log(buildName("Joseph", "Samuel", "Lucas", "MacKinzie")); // Joseph Samuel Lucas MacKinzie
- 
+// function buildName(firstName: string, ...restOfName: string[]) {
+//     return firstName + " " + restOfName.join(" ");
+// }
+// console.log(buildName("Joseph", "Samuel", "Lucas", "MacKinzie")); // Joseph Samuel Lucas MacKinzie
+
+// // 2. 定义 Point 对象类型
+// type Point = {
+//   x: number;
+//   y: number;
+// }
+
+// // 3. 创建 Point 类型的对象 p2
+// const p2: Point = {
+//   X: 1,  // 错误：属性 "X" 不存在于类型 "Point" 中
+//   y: 1,
+// }
+
+// interface IParent1 {
+//   v1: number;
+// }
+// interface IParent2 {
+//   v2: number;
+// }
+// interface Child extends IParent1, IParent2 {}
+// let Iobj: Child = { v1: 12, v2: 23 };
+// console.log("value 1: " + Iobj.v1 + " value 2: " + Iobj.v2); // value 1: 12 value 2: 23
+
+// interface Lengthwise {
+//     length: number;
+// }
+
+// function logLength<T extends Lengthwise>(arg: T): void {
+//     console.log(arg.length);
+// }
+
+// logLength("hello"); // 5
+// logLength(42); // Argument of type 'number' is not assignable to parameter of type 'Lengthwise'.
+
+// 基本语法
+// function defaultValue<T = string>(arg: T): T {
+//     return arg;
+// }
+
+// // 使用带默认值的泛型函数
+// let result1 = defaultValue("hello"); // 推断为 string 类型
+// let result2 = defaultValue(42);      // 推断为 number 类型
+
+// type User = {
+//   id: number;
+//   kind: string;
+// };
+// function makeCustomer<T extends User>(u: T): T {
+//   return {
+//     id: u.id,
+//     kind: "customer",
+//   };
+// }
+
+// makeCustomer({ id: 1, kind: "adin", name: "jack" });
