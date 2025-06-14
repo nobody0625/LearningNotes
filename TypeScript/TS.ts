@@ -129,3 +129,117 @@
 // }
 
 // makeCustomer({ id: 1, kind: "adin", name: "jack" });
+
+// type A = keyof any
+
+// interface Father {
+//     blood: '0',
+// }
+
+// interface Mather {
+//     blood: 'X',
+// }
+
+// type Son<T> = T extends Father ? Father : Mather;
+
+// type boy = Son<{}>; // Mather
+// type girl = Son<{blood: '0'}>; // Father
+
+// type Foo<T> = T extends {t: infer Test} ? Test : string;
+
+// type One = Foo<number>; // string
+// type Two = Foo<{t: boolean}> // boolean
+// type Three = Foo<{a: number, t: () => void}> // () => void
+
+// type Animal = {
+//     name: string;
+//     age: number;
+//     eat: () => number;
+// }
+
+// //把对象类型的全部属性变成可选
+// type PartialAnimal = Partial<Animal>;
+
+
+// // 实现Partial
+// type MyPartial<T> = {
+//     [P in keyof T]?: T[P]
+// }
+
+// type Animal = {
+//     name?: string;
+//     age: number;
+//     eat?: () => number;
+// }
+
+// //把对象的全部属性变成必选
+// type RequiredAnimal = Required<Animal>;
+
+// type Required<T> = { [P in keyof T]-?: T[P] };
+
+// // 声明一个对象的key和value类型
+// const obj: Record<string, string> = {name: 'zhangsan', tag: '打工人', data: 'str'};
+
+// // 将一个联合类型的值映射到另一个类型上
+// type Animal = 'dog' | 'cat' | 'fish';
+
+// type AnimalInfo = Record<Animal, { name: string; age: number }>;
+
+// const animals: AnimalInfo = {
+//   dog: { name: 'dogName', age: 2 },
+//   cat: { name: 'catName', age: 3 },
+//   fish: { name: 'fishName', age: 5 },
+// };
+
+// // 实现Record
+// type MyRecord<K extends keyof any, T> = {
+//     [key in K]: T;
+// }
+
+// // 测试信息类型
+// interface User {
+//     account: string
+//     avatar: string
+//     id: string
+//     mobile: string
+//     token: string
+//   }
+ 
+// // 使用Pick泛型工具： 抽取 id 和 token
+// type PickUserTest = Pick<User, 'id' | 'token' | 'account'>
+
+
+
+// // 实现Pick
+// type MyPick<T, K extends keyof T> = {
+//     [P in K]: T[P]
+// }
+
+// type Animal = {
+//     name: string;
+//     age: number;
+//     eat: () => void;
+// }
+
+// // 去除对象类型T中包含K 的键值对
+// const OmitAnimal: Omit<Animal, 'name' | 'age'> = {eat: ()=>{console.log('eat')}};
+
+// interface User {
+//     account: string
+//     avatar: string
+//     id: string
+//     mobile: string
+//     token: string
+//   }
+
+// type OmitUserTest = Omit<User, 'token' | 'mobile'>
+
+function foo(x: string | number) {
+    return x;
+}
+
+// 获取函数返回的类型
+type FooType = ReturnType<typeof foo>; // string | number
+
+// 实现ReturnType
+type MyReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any;
