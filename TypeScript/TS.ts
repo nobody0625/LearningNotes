@@ -234,12 +234,16 @@
 
 // type OmitUserTest = Omit<User, 'token' | 'mobile'>
 
-function foo(x: string | number) {
-    return x;
-}
+// function foo(x: string | number) {
+//     return x;
+// }
 
-// 获取函数返回的类型
-type FooType = ReturnType<typeof foo>; // string | number
+// // 获取函数返回的类型
+// type FooType = ReturnType<typeof foo>; // string | number
 
-// 实现ReturnType
-type MyReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any;
+// // 实现ReturnType
+// type MyReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any;
+
+// let x: number;
+// console.log(x);
+
