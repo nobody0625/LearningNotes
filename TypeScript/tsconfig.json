@@ -23,3 +23,5 @@
 // 当 tsconfig.json 文件不存在时：
 // ts-node 会回退到严格的默认行为
 // 默认使用 CommonJS 模块系统
+
+

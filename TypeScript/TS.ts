@@ -247,3 +247,17 @@
 // let x: number;
 // console.log(x);
 
+// 将此代码在浏览器控制台运行
+const markdown = `## type 类型别名
+
+- type 为现有类型或复杂类型组合创建新名称
+- 重复声明 type 会报错
+- type 通过 & 来实现类型的扩展
+
+\`\`\`ts
+// 代码内容
+\`\`\``;
+
+// 转换为JSON安全字符串
+console.log(JSON.stringify(markdown));
+// 复制输出结果
