@@ -307,9 +307,7 @@ makeCustomer({ id: 1, kind: "adin", name: "jack" });
 //  'T' could be instantiated with an arbitrary type which could be unrelated to '{ id: number; kind: string; name: string; }'.
 ```
 
-```
 泛型 T 是 User 的子类，它至少包含成员 id 和 kind，而函数实现的返回值类型为 { id: number, kind: string }，两者并不匹配。return处的报错与后续的函数调用无关，即使将函数调用注释掉也不会改变报错提示
-```
 
 ```ts
 //法一：使用展开运算符...确保类型匹配
