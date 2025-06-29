@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .welcome-page {
+        height: calc(var(--vh, 1vh) * 100);
+        width: 100%;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="welcome-page fullscreen-element">欢迎来到我们的网站！</div>
+  </body>
+
+  <script>
+    function setRealVH() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }
+
+    // 初始加载时设置
+    window.addEventListener("load", setRealVH);
+    // 窗口大小改变或旋转屏幕时重新设置
+    // window.addEventListener("resize", setRealVH);
+  </script>
+</html>
